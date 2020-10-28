@@ -19,7 +19,7 @@ int obtener_n()
 int *leer_archivo(int *apt_arreglo, int n)
 {
 	FILE *fp = fopen("prueba.txt", "r");
-	fscanf(fp, "%d", &n);
+
 	apt_arreglo = (int *)malloc(n * sizeof(int));
 
 	for (int i = 0; i < n; i++)
@@ -28,6 +28,7 @@ int *leer_archivo(int *apt_arreglo, int n)
 	}
 
 	fclose(fp);
+	
 	return apt_arreglo;
 }
 

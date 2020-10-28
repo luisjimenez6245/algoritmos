@@ -26,6 +26,7 @@ int main(int argc, const char **argv)
 	seleccion(arreglo, n);
 
 	uswtime(&utime1, &stime1, &wtime1);
+	
 	imprimir_tiempos(utime0, stime0, wtime0, utime1, stime1, wtime1);
 
 	imprimir_arreglo(arreglo, n);
