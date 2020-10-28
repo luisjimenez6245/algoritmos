@@ -1,14 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include"../util.h" 
+#include "../utils/util.h"
+#include "../utils/tiempo.h"
 
 void insercion(int *apt_arreglo, int n);
 
 int main(int argc, const char **argv)
 {
+	double utime0, stime0, wtime0, utime1, stime1, wtime1;
 	int n, i;
 	int *arreglo;
-	
+
 	if (argc == 2)
 	{
 		n = atoi(argv[1]);
@@ -19,8 +21,12 @@ int main(int argc, const char **argv)
 	}
 
 	arreglo = leer_archivo(arreglo, n);
+	uswtime(&utime0, &stime0, &wtime0);
 
 	insercion(arreglo, n);
+
+	uswtime(&utime1, &stime1, &wtime1);
+	imprimir_tiempos(utime0, stime0, wtime0, utime1, stime1, wtime1);
 
 	imprimir_arreglo(arreglo, n);
 	printf("\n");

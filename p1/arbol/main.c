@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "arbol_binario_ordenado.h"
-#include "../util.h"
+#include "../utils/util.h"
+#include "../utils/tiempo.h"
 
 void ordena_con_arbol_binario_busqueda(int *arreglo, int n)
 {
@@ -18,6 +19,7 @@ void ordena_con_arbol_binario_busqueda(int *arreglo, int n)
 
 int main(int argc, const char **argv)
 {
+	double utime0, stime0, wtime0, utime1, stime1, wtime1;
 	int n, i;
 	int *arreglo;
 
@@ -32,7 +34,13 @@ int main(int argc, const char **argv)
 
 	arreglo = leer_archivo(arreglo, n);
 
+	uswtime(&utime0, &stime0, &wtime0);
+
 	ordena_con_arbol_binario_busqueda(arreglo, n);
+
+	uswtime(&utime1, &stime1, &wtime1);
+	
+	imprimir_tiempos(utime0, stime0, wtime0, utime1, stime1, wtime1);
 
 	imprimir_arreglo(arreglo, n);
 	printf("\n");
