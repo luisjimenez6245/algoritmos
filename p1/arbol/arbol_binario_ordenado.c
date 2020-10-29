@@ -118,6 +118,16 @@ int vacioArbinOr(ArbinOr a)
 	return a == NULL; 
 }
 
+void destruirArbinOr(ArbinOr a)
+{
+	if(a != NULL) 
+	{
+		destruirArbinOr(a -> izq); 
+		destruirArbinOr(a -> der); 
+		free(a); 
+	}
+}
+
 void inordenItera(ArbinOr a) 
 {
 	Pila pil; 
@@ -145,6 +155,7 @@ void inordenItera(ArbinOr a)
 		}	
 	}
 }
+
 
 void guardar_recorrido_inorder(ArbinOr a, int* arreglo)  
 {

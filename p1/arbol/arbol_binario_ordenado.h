@@ -47,6 +47,13 @@ TipoAO raizArbinOr(ArbinOr a);
 int vacioArbinOr(ArbinOr a);
 
 
+//----- Destructora -----
+
+/* FUNCIÓN : Destruye un árbol binario retornando toda la memoria ocupada en su representación. 
+ */
+void destruirArbinOr(ArbinOr a); 
+
+
 //----- Funciones de recorrido ----- 
 
 void inordenItera(ArbinOr a);
