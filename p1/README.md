@@ -1,23 +1,41 @@
 # Practica 1
 
-Autroizar archivos: 
+Cada una de las capertas tiene su respectivo algoritmo para ejecutarse.
 
-$ chmod +x compila.sh 
+Se requiere que el archivo de numeros10millones.txt esté ubicado en la raíz principal.
 
-$ chmod +x corre.sh
+Para ejecutar los scripts correspondientes ejecutar los siguientes comandos:
 
-$ chmod +x probar.sh
+    $ chmod +x compila.sh 
 
 
-Para compilar:
+    $ chmod +x corre.sh
 
-$ ./compila.sh
 
-La n es opcional, te la pide al final del archivo
+    $ chmod +x probar.sh
 
-$ ./correr.sh [carpeta_programa] [n]
+
+
+Para compilar todos los programas:
+
+    $ ./compila.sh
+
+
+Para correr los programas existen 2 opciones correr uno a la vez con una n dada o bien correr un ejemplo con los números solicitados:
+
+Para correr un solo pograma con una n dada ejecuta el siguiente comando: (la n es opcional, si no se la ingresas te lo solicita el programa)
+
+    $ ./correr.sh [carpeta_programa] [n]
 
 Ejemplo:
 
-$ ./correr.sh [carpeta_programa] [n]
+    $ ./correr.sh burbuja_simple 1000
 
+
+Para correr un algoritmo para todas las n dadas ejecuta el siguiente comando: (Los resultados los imprime en el archivo resultados.txt de la carpeta resultados que está adentro a  la carpteta de cada algorítmo)
+
+    $ ./probar.sh [carpeta_programa]
+
+Ejemplo:
+
+    $ ./probar.sh burbuja_simple

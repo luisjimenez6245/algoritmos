@@ -1,3 +1,13 @@
+/*
+	AUTORES (C)  2020: 
+		Hernández López Moises
+		Herrera Merino Roxana Angélica
+		Jiménez Delgado Luis Diego
+	VERSIÓN: 1.0
+	DESCRIPCIÓN: Implementación del algoritmo de ordenamiento insercion
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "../utils/util.h"
@@ -5,6 +15,13 @@
 
 void insercion(int *apt_arreglo, int n);
 
+/*
+FUNCIÓN: main(int argc, const char **argv)
+DESCRIPCIÓN: Main del programa
+RECIBE: int argc (número de argumentos recibidos), const char **argv (argumentos recibidos)
+DEVUELVE: int 0
+OBSERVACIONES: puede recibir el número n como argumento, si no se lo recibe lo solicita en la hora de ejecución
+*/
 int main(int argc, const char **argv)
 {
 	double utime0, stime0, wtime0, utime1, stime1, wtime1;
@@ -34,6 +51,13 @@ int main(int argc, const char **argv)
 	return 0;
 }
 
+/*
+FUNCIÓN: insercion(int *apt_arreglo, int n)
+DESCRIPCIÓN: Ordena el arreglo de número dado
+RECIBE: int *apt_arreglo (arreglo a ordenar), int n (total de números)
+DEVUELVE: void.
+OBSERVACIONES: es la implementación del algoritmo de ordenamiento de insercion
+*/
 void insercion(int *apt_arreglo, int n)
 {
 	int i, j, temp;

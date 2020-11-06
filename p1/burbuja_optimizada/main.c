@@ -14,6 +14,13 @@
 
 void burbuja_optimizada(int *apt_arreglo, int n);
 
+/*
+FUNCIÓN: main(int argc, const char **argv)
+DESCRIPCIÓN: Main del programa
+RECIBE: int argc (número de argumentos recibidos), const char **argv (argumentos recibidos)
+DEVUELVE: int 0
+OBSERVACIONES: puede recibir el número n como argumento, si no se lo recibe lo solicita en la hora de ejecución
+*/
 int main(int argc, const char **argv)
 {
 	double utime0, stime0, wtime0, utime1, stime1, wtime1;
@@ -45,11 +52,11 @@ int main(int argc, const char **argv)
 }
 
 /*
-FUNCIÓN: int tipoValor(char caracter)
-DESCRIPCIÓN: Evalula un cracter para ver que tipo de dato es.
-RECIBE: char caracter (Caractér a evauluar).
-DEVUELVE: int(Tipo de valor asignado).
-OBSERVACIONES: Regresa 4 en caso de que el caracter sea una letra, regresa la 1 si el signo es + o -,regresa la 1 si el signo es + o -, 
+FUNCIÓN: burbuja_optimizada(int *apt_arreglo, int n)
+DESCRIPCIÓN: Ordena el arreglo de número dado
+RECIBE: int *apt_arreglo (arreglo a ordenar), int n (total de números)
+DEVUELVE: void.
+OBSERVACIONES: es la implementación del algoritmo de ordenamiento burbuja optimizado
 */
 void burbuja_optimizada(int *apt_arreglo, int n)
 {
