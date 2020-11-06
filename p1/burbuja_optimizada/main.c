@@ -1,3 +1,12 @@
+/*
+	AUTORES (C)  2020: 
+		Hernández López Moises
+		Herrera Merino Roxana Angélica
+		Jiménez Delgado Luis Diego
+	VERSIÓN: 1.0
+	DESCRIPCIÓN: Implementación del algoritmo burbuja optimizado
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "../utils/util.h"
@@ -35,6 +44,13 @@ int main(int argc, const char **argv)
 	return 0;
 }
 
+/*
+FUNCIÓN: int tipoValor(char caracter)
+DESCRIPCIÓN: Evalula un cracter para ver que tipo de dato es.
+RECIBE: char caracter (Caractér a evauluar).
+DEVUELVE: int(Tipo de valor asignado).
+OBSERVACIONES: Regresa 4 en caso de que el caracter sea una letra, regresa la 1 si el signo es + o -,regresa la 1 si el signo es + o -, 
+*/
 void burbuja_optimizada(int *apt_arreglo, int n)
 {
 	int cambios = 1;
