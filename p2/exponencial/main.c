@@ -45,7 +45,7 @@ int exponencial(int *arr, int x, int n)
     int i = 0;
     if (arr[i] == x)
         return i;
-
+    i = 1;
     while (i < n && arr[i] <= x)
     {
         i = i * 2;

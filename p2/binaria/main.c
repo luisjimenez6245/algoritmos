@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h>  
+#include <math.h>
 #include <stdlib.h>
 #include "../utils/util.h"
 #include "../utils/tiempo.h"
@@ -41,19 +41,22 @@ int main(int argc, const char **argv)
     return 0;
 }
 
-int binaria(int *arr, int n, int key)
+int binaria(int *arr, int n, int x)
 {
-    int lg = log2(n - 1) + 1;
-    int pos = 0;
-    for (int i = lg; i >= 0; i--)
+    int anterior = 0;
+    int siguiente = n - 1;
+    int centro = anterior + (siguiente - anterior) / 2;
+
+    while ((anterior <= siguiente))
     {
-        if (arr[pos] == key)
-        {
-            return pos;
-        }
-        int np = pos | (1 << i);
-        if ((np < n) && (arr[np] <= key))
-            pos = np;
+        if (arr[centro] == x)
+            return centro;
+        else if (arr[centro] < x)
+            anterior = centro + 1;
+        else
+            siguiente = centro - 1;
+        centro = (siguiente + anterior) / 2;
     }
-    return (arr[pos] == key) ? pos : -1;
+
+    return (arr[centro] != x) ? centro : -1;
 }

@@ -1,14 +1,14 @@
 Valor de n: 27
 Valor de x: 5
 Se encontró  en la posición 4
-real (Tiempo total)  0.0006120205 s
-user (Tiempo de procesamiento en CPU) 0.0001120000 s
-sys (Tiempo en acciónes de E/S)  0.0002620000 s
-CPU/Wall   61.1090649007 % 
+real (Tiempo total)  0.0005848408 s
+user (Tiempo de procesamiento en CPU) 0.0001090000 s
+sys (Tiempo en acciónes de E/S)  0.0002530000 s
+CPU/Wall   61.8971890746 % 
 
 
-real (Tiempo total)  6.1202049255e-04 s
-user (Tiempo de procesamiento en CPU) 1.1200000000e-04 s
-sys (Tiempo en acciónes de E/S)  2.6200000000e-04 s
-CPU/Wall   61.1090649007 % 
+real (Tiempo total)  5.8484077454e-04 s
+user (Tiempo de procesamiento en CPU) 1.0900000000e-04 s
+sys (Tiempo en acciónes de E/S)  2.5300000000e-04 s
+CPU/Wall   61.8971890746 % 
 

@@ -77,11 +77,11 @@ int fibonacci(int *arr, int x, int n)
             }
             else
             {
-                return i + 1;
+                return i;
             }
         }
     }
     if (ultimo_fibo && arr[limite] == x)
-        return limite + 1;
+        return limite;
     return -1;
 }
