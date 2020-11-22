@@ -50,4 +50,21 @@ int exponencial(int *arr, int x, int n)
     {
         i = i * 2;
     }
+
+    int anterior = i / 2;
+    int siguiente = obtener_menor(i, n - 1);
+    int centro = anterior + (siguiente - anterior) / 2;
+
+    while ((anterior <= siguiente))
+    {
+        if (arr[centro] == x)
+            return centro;
+        else if (arr[centro] < x)
+            anterior = centro + 1;
+        else
+            siguiente = centro - 1;
+        centro = (siguiente + anterior) / 2;
+    }
+
+    return (arr[centro] != x) ? centro : -1;
 }

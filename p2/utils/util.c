@@ -95,3 +95,8 @@ void imprimir_resultado(int res)
 		printf("Se encontró  en la posición %i", res);
 	}
 }
+
+int obtener_menor(int x, int y)
+{
+    return (x <= y) ? x : y;
+}

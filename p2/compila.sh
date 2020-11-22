@@ -1,1 +1,4 @@
 gcc ./fibbo/main.c ./utils/util.c ./utils/tiempo.c -o ./fibbo/a.out
+gcc ./lineal/main.c ./utils/util.c ./utils/tiempo.c -o ./lineal/a.out
+gcc ./exponencial/main.c ./utils/util.c ./utils/tiempo.c -o ./exponencial/a.out
+gcc ./binaria/main.c ./utils/util.c ./utils/tiempo.c -o ./binaria/a.out

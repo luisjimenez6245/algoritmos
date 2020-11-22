@@ -85,8 +85,3 @@ int fibonacci(int *arr, int x, int n)
         return limite + 1;
     return -1;
 }
-
-int obtener_menor(int x, int y)
-{
-    return (x <= y) ? x : y;
-}
