@@ -30,9 +30,9 @@ int main(int argc, const char **argv)
         n = obtener_n();
         x = obtener_n();
     }
-    arr = leer_archivo(arr, n);
+    arr = leer_archivo(arr, n); 
     uswtime(&utime0, &stime0, &wtime0);
-    pos = binaria(arr, x, n);
+    pos = binaria(arr, n, x);
     uswtime(&utime1, &stime1, &wtime1);
     printf("Valor de n: %d\n", n);
     printf("Valor de x: %d\n", x);
@@ -42,21 +42,21 @@ int main(int argc, const char **argv)
 }
 
 int binaria(int *arr, int n, int x)
-{
-    int anterior = 0;
+{	
+    int anterior = 0; 
     int siguiente = n - 1;
-    int centro = anterior + (siguiente - anterior) / 2;
+    int centro; 
 
-    while ((anterior <= siguiente))
+    while(anterior <= siguiente)
     {
-        if (arr[centro] == x)
-            return centro;
-        else if (arr[centro] < x)
+	centro = anterior + (siguiente - anterior) / 2; 
+        if(arr[centro] == x)
+	    return centro;  
+	if(arr[centro] < x)
             anterior = centro + 1;
         else
             siguiente = centro - 1;
-        centro = (siguiente + anterior) / 2;
     }
 
-    return (arr[centro] != x) ? centro : -1;
+    return -1; 
 }
