@@ -7,6 +7,6 @@ do
     for n in ${n_array[*]}
     do
         echo "n:$n x:$x"
-        ./$1/a.out "$n" "$x" < 10millones.txt  >> "./$1/resultados/resultados.txt"
+        ./$1/e.out "$n" "$x" < 10millones.txt  >> "./$1/resultados/resultados_hilos.txt"
     done
 done
