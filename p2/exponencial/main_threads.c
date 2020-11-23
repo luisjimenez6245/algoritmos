@@ -91,7 +91,7 @@ int create_threads(int x, int n)
 
     int anterior = i / 2;
     int siguiente = obtener_menor(i, n - 1);
-    int elementos = (siguiente - anterior);
+    int elementos = (siguiente - anterior) + 1;
     int hilos = calc_hilos(elementos);
     int actual = elementos / hilos;
     pthread_t threads[hilos];
