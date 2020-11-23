@@ -66,5 +66,5 @@ int exponencial(int *arr, int x, int n)
         centro = (siguiente + anterior) / 2;
     }
 
-    return (arr[centro] != x) ? centro : -1;
+    return (arr[centro] != x) ? -1 : centro;
 }
