@@ -93,7 +93,7 @@ ArbinOr elimArbinOr(ArbinOr a, TipoAO elem)
 
 int estaArbinOr(ArbinOr a, TipoAO elem) 
 {
-	while(a != NULL && (a -> info) != elem) 
+	while(a != NULL && (a -> info) != elem)
 		a = (elem < (a -> info))  ? a -> izq : a -> der; 
 	return a!= NULL; 
 }
