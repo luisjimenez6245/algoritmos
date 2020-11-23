@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <math.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
@@ -8,7 +9,7 @@
 
 #include "../utils/util.h"
 #include "../utils/tiempo.h"
-#define MAXTHREADS 24
+#define MAXTHREADS 8
 
 typedef struct informacion
 {
@@ -85,12 +86,12 @@ int create_threads(int x, int n)
         infos[i]->fin = ((i + 1) * actual - 1);
     }
 
-    infos[hilos -1] = malloc(sizeof(*infos[hilos]));
-    infos[hilos -1]->inicio = (i * actual);
-    infos[hilos -1]->fin = n;
+    infos[hilos - 1] = malloc(sizeof(*infos[hilos]));
+    infos[hilos - 1]->inicio = (i * actual);
+    infos[hilos - 1]->fin = n;
     for (i = 0; i < hilos; ++i)
     {
- 
+
         status = pthread_create(&threads[i], NULL, thread_process, infos[i]);
         if (status)
         {
@@ -107,11 +108,10 @@ int create_threads(int x, int n)
 
 int calc_hilos(int n)
 {
-    if (n == 1)
-        return 1;
-    int module = (n / MAXTHREADS);
     if (n < MAXTHREADS)
-        return 2;
-    int res = MAXTHREADS;
-    return res + 1;
+        return 1;
+    int module = (n % MAXTHREADS);
+    if (module == 0)
+        return MAXTHREADS;
+    return module;
 }

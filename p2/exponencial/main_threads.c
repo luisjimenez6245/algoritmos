@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <math.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
@@ -9,7 +8,7 @@
 
 #include "../utils/util.h"
 #include "../utils/tiempo.h"
-#define MAXTHREADS 8
+#define MAXTHREADS 4
 
 typedef struct informacion
 {
@@ -80,21 +79,34 @@ void *thread_process(void *datos)
 
 int create_threads(int x, int n)
 {
-    int hilos = calc_hilos(n);
-    int actual = n / hilos;
+
+    int i = 0;
+    if (arr[i] == x)
+        return i;
+    i = 1;
+    while (i < n && arr[i] <= x)
+    {
+        i = i * 2;
+    }
+
+    int anterior = i / 2;
+    int siguiente = obtener_menor(i, n - 1);
+    int elementos = (siguiente - anterior);
+    int hilos = calc_hilos(elementos);
+    int actual = elementos / hilos;
     pthread_t threads[hilos];
     informacion *infos[hilos];
-    int status, i, *exit_code;
+    int status, *exit_code;
     for (i = 0; i < (hilos - 1); ++i)
     {
         infos[i] = malloc(sizeof(*infos[i]));
-        infos[i]->inicio = (i * actual);
-        infos[i]->fin = ((i + 1) * actual - 1);
+        infos[i]->inicio = anterior + (i * actual);
+        infos[i]->fin = actual + ((i + 1) * actual);
     }
 
     infos[hilos - 1] = malloc(sizeof(*infos[hilos]));
-    infos[hilos - 1]->inicio = (i * actual);
-    infos[hilos - 1]->fin = n;
+    infos[hilos - 1]->inicio = anterior + (i * actual);
+    infos[hilos - 1]->fin = siguiente;
     for (i = 0; i < hilos; ++i)
     {
 
@@ -116,6 +128,6 @@ int calc_hilos(int n)
 {
     if (n == 1)
         return 1;
-    int module = log2(n);
+    int module = (n % MAXTHREADS);
     return (module == 0) ? MAXTHREADS : module;
 }
