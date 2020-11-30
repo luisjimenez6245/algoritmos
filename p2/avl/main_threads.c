@@ -56,7 +56,7 @@ int main(int argc, const char **argv)
 	arbol = carga_avl(arbol, arreglo, n);
 
 	uswtime(&utime0, &stime0, &wtime0);
-	estaAVL(arbol, x);
+
 	/*
 	
 	if(estaAVL(arbol, x)) 
