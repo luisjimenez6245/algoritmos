@@ -67,7 +67,8 @@ DEVUELVE: void
 OBSERVACIONES: leer time.h para más información
 */
 void imprimir_tiempos(double utime0, double stime0, double wtime0, double utime1, double stime1, double wtime1)
-{
+{	
+	/*
 	printf("\n");
 	printf("real (Tiempo total)  %.10f s\n", wtime1 - wtime0);
 	printf("user (Tiempo de procesamiento en CPU) %.10f s\n", utime1 - utime0);
@@ -77,15 +78,20 @@ void imprimir_tiempos(double utime0, double stime0, double wtime0, double utime1
 
 	//Mostrar los tiempos en formato exponecial
 	printf("\n");
+	
 	printf("real (Tiempo total)  %.10e s\n", wtime1 - wtime0);
 	printf("user (Tiempo de procesamiento en CPU) %.10e s\n", utime1 - utime0);
 	printf("sys (Tiempo en acciónes de E/S)  %.10e s\n", stime1 - stime0);
 	printf("CPU/Wall   %.10f %% \n", 100.0 * (utime1 - utime0 + stime1 - stime0) / (wtime1 - wtime0));
 	printf("\n");
+	/*/
+	printf("%.10e\n", wtime1 - wtime0);
+
 }
 
 void imprimir_resultado(int res)
 {
+	/*
 	if (res == -1)
 	{
 		printf("No se encontró el resultado");
@@ -94,6 +100,7 @@ void imprimir_resultado(int res)
 	{
 		printf("Se encontró  en la posición %i", res);
 	}
+	*/
 }
 
 int obtener_menor(int x, int y)

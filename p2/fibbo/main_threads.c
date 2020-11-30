@@ -49,8 +49,6 @@ int main(int argc, const char **argv)
     uswtime(&utime0, &stime0, &wtime0);
     fibonacci(arr, x, n);
     uswtime(&utime1, &stime1, &wtime1);
-    printf("Valor de n: %d\n", n);
-    printf("Valor de x: %d\n", x);
     imprimir_resultado(posicion);
     imprimir_tiempos(utime0, stime0, wtime0, utime1, stime1, wtime1);
     return 0;

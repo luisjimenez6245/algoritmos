@@ -50,8 +50,6 @@ int main(int argc, const char **argv)
     uswtime(&utime0, &stime0, &wtime0);
     create_threads(x, n);
     uswtime(&utime1, &stime1, &wtime1);
-    printf("Valor de n: %d\n", n);
-    printf("Valor de x: %d\n", x);
     imprimir_resultado(posicion);
     imprimir_tiempos(utime0, stime0, wtime0, utime1, stime1, wtime1);
     return 0;
@@ -81,7 +79,7 @@ void *thread_process(void *datos)
 int create_threads(int x, int n)
 {
     int hilos = calc_hilos(n);
-    int actual = n / hilos;
+    int actual = n / hilos; 
     pthread_t threads[hilos];
     informacion *infos[hilos];
     int status, i, *exit_code;

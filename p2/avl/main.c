@@ -56,19 +56,19 @@ int main(int argc, const char **argv)
 	arbol = carga_avl(arbol, arreglo, n);
 
 	uswtime(&utime0, &stime0, &wtime0);
+
+	/*
 	
 	if(estaAVL(arbol, x)) 
 		printf("Si se encontro el elemento %d en el arbol\n", x); 
 	else 
 		printf("No se encontro el elemento %d en el arbol\n", x); 
-       		
+    */
 	uswtime(&utime1, &stime1, &wtime1);
 
-	printf("Valor de n: %d\n", n); 	
 	imprimir_tiempos(utime0, stime0, wtime0, utime1, stime1, wtime1);
 
 	imprimir_arreglo(arreglo, n);
-	printf("\n");
 
 	destruirAVL(arbol); 
 
