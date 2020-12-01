@@ -10,11 +10,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "avl.h"
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+#include <pthread.h>
 #include "../utils/util.h"
 #include "../utils/tiempo.h"
 
 AVL carga_avl(AVL arbol, int *arreglo, int n);
+void busqueda(AVL a);
 
+typedef struct informacion
+{
+	AVL arbol;
+} informacion;
+
+int x = 0;
+int posicion = 0;
 /*
 FUNCIÓN: main(int argc, const char **argv)
 DESCRIPCIÓN: Main del programa
@@ -33,7 +45,7 @@ int main(int argc, const char **argv)
 	AVL arbol = iniAVL();
     
 	int n = 0;	// cantidad de números
-   	int x = 0;	// número a buscar 
+   	 x = 0;	// número a buscar 
     	if (argc >= 2)
     	{
         	n = atoi(argv[1]);
@@ -73,6 +85,65 @@ int main(int argc, const char **argv)
 	destruirAVL(arbol); 
 
 	return 0;
+}
+
+
+void busqueda_arbol(AVL a, int elem)
+{
+	while (a != NULL && (a->info) != elem)
+	{
+		a = (elem < (a->info)) ? a->izq : a->der;
+		if (posicion != -1)
+		{
+			break;
+		}
+	}
+	if (a != NULL)
+	{
+		posicion = 1;
+	}
+}
+
+void *thread_process(void *datos)
+{
+	informacion *info = datos;
+	busqueda_arbol(info->arbol, x);
+	pthread_exit(0);
+}
+
+void busqueda(AVL a)
+{
+	pthread_t thread_izq;
+	pthread_t thread_der;
+	informacion *info_izq = malloc(sizeof(info_izq));
+	informacion *info_der = malloc(sizeof(info_der));
+
+	info_izq->arbol = a->izq;
+	info_der->arbol = a->der;
+
+	int status, i, *exit_code, aux;
+
+	if (a->info == x)
+	{
+		posicion = 1;
+		return;
+	}
+
+	status = pthread_create(&thread_izq, NULL, thread_process, info_izq);
+	if (status)
+	{
+		printf("\nError en thread %i\n", status);
+		exit(-1);
+	}
+
+	status = pthread_create(&thread_der, NULL, thread_process, info_der);
+	if (status)
+	{
+		printf("\nError en thread %i\n", status);
+		exit(-1);
+	}
+	pthread_join(thread_izq, (void **)&exit_code);
+	pthread_join(thread_der, (void **)&exit_code);
 }
 
 /* FUNCIÓN:	carga_arbol_binario_busqueda(ArbinOr arbol, int *apt_arreglo, int n)

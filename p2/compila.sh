@@ -1,4 +1,5 @@
 gcc ./avl/avl.c ./avl/main.c   ./utils/util.c ./utils/tiempo.c -o ./avl/a.out
+gcc ./avl/main_threads.c  ./avl/avl.c   ./utils/util.c ./utils/tiempo.c -o ./avl/e.out
 
 gcc ./fibbo/main.c ./utils/util.c ./utils/tiempo.c -o ./fibbo/a.out
 gcc ./lineal/main.c ./utils/util.c ./utils/tiempo.c -o ./lineal/a.out
