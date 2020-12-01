@@ -84,23 +84,23 @@ void imprimir_tiempos(double utime0, double stime0, double wtime0, double utime1
 	printf("sys (Tiempo en acciónes de E/S)  %.10e s\n", stime1 - stime0);
 	printf("CPU/Wall   %.10f %% \n", 100.0 * (utime1 - utime0 + stime1 - stime0) / (wtime1 - wtime0));
 	printf("\n");
-	/*/
+	/
 	printf("%.10e\n", wtime1 - wtime0);
+	*/
 
 }
 
 void imprimir_resultado(int res)
 {
-	/*
+	
 	if (res == -1)
 	{
-		printf("No se encontró el resultado");
+		printf("NO\n");
 	}
 	else
 	{
-		printf("Se encontró  en la posición %i", res);
+		printf("SI\n");
 	}
-	*/
 }
 
 int obtener_menor(int x, int y)
