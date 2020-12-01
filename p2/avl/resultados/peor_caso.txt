@@ -1,0 +1,5 @@
+
+VALOR DE N : 10000000
+61396 : 
+No se encontro el elemento 61396 en el arbol
+1.7166137695e-05
